@@ -1,28 +1,30 @@
 import { connect } from 'react-redux';
 import AllPuppies from './AllPuppies';
 
-import { receivePuppies } from './action-creators';
+// import { loadServerPuppies } from './action-creators';
 
-const hardcodedPuppies = [
-  { id: 1, name: 'Cody' },
-  { id: 2, name: 'Ben' },
-  { id: 3, name: 'Bubba' }
-];
+// const hardcodedPuppies = [
+//   { id: 1, name: 'Cody' },
+//   { id: 2, name: 'Ben' },
+//   { id: 3, name: 'Bubba' }
+// ];
 
-const mapState = function(state, props) {
-  console.log("STATE", state, " --- OWN PROPS", props);
-  return { puppies: state };
+const mapState = function(state) {
+  console.log("STATE", state);
+  return { puppies: state.puppies };
 };
 
+const mapDispatch = function(dispatch) {
 
-const mapDispatch = function (dispatch) {
-  return {
-    onLoadPuppies: function () {
-      const action = receivePuppies(hardcodedPuppies);
-      console.log("ACTION", action);
-      dispatch(action);
-    }
-  };
+  // THIS IS FROM BEFORE WE CALLED loadServerPuppies FROM THE onEnter IN THE ROUTES
+  // return {
+  //   onLoadPuppies: function () {
+  //     // const action = receivePuppies(hardcodedPuppies);
+  //     const action = loadServerPuppies();
+  //     dispatch(action);
+  //   }
+  // };
+  return {};
 };
 
 export default connect(mapState, mapDispatch)(AllPuppies);

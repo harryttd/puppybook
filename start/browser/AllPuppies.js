@@ -1,15 +1,16 @@
 import React from 'react';
+// import store from './store';
 
 export default class AllPuppies extends React.Component {
 
-  componentDidMount() {
-    this.props.onLoadPuppies();
-  }
+  // componentDidMount() {
+  //   this.props.onLoadPuppies();
+    // console.log(store.getState());
+  // }
 
   render () {
-    console.log("PROPS", this.props.puppies.allPuppies);
-    // const x = this.props.puppies.allPuppies;
-    // console.log(x);
+    console.log("PROPS", this.props);
+
     return (
       <div>
         <ul className="list-unstyled">

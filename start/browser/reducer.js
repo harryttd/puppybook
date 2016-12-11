@@ -1,17 +1,16 @@
 import { RECEIVE_PUPPIES } from './action-creators';
 
-export function puppyReducer(state = [], action) {
+export function puppyReducer(state = { puppies: [] }, action) {
+
+  const newState = Object.assign({}, state);
 
   switch (action.type) {
-    // case RECEIVE_PUPPIES: {
-    //
-    //   console.log(action);
-    //   return action.receivedPuppies;
-    // }
-    case RECEIVE_PUPPIES: return Object.assign({}, state, {
-      allPuppies: action.receivedPuppies
-    });
+    case RECEIVE_PUPPIES:
+      newState.puppies = action.puppies.data;
+      break;
 
     default: return state;
   }
+
+  return newState;
 }
