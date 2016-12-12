@@ -9,14 +9,10 @@ import AllPuppies from './AllPuppies';
 //   { id: 3, name: 'Bubba' }
 // ];
 
-const mapState = function(state) {
-  console.log("STATE", state);
-  return { puppies: state.puppies };
-};
-
-const mapDispatch = function(dispatch) {
-
+const mapState = state => ({ puppies: state.allPuppies });
+const mapDispatch = {};
   // THIS IS FROM BEFORE WE CALLED loadServerPuppies FROM THE onEnter IN THE ROUTES
+// function(dispatch) {
   // return {
   //   onLoadPuppies: function () {
   //     // const action = receivePuppies(hardcodedPuppies);
@@ -24,7 +20,5 @@ const mapDispatch = function(dispatch) {
   //     dispatch(action);
   //   }
   // };
-  return {};
-};
 
 export default connect(mapState, mapDispatch)(AllPuppies);
